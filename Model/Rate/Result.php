@@ -1,7 +1,7 @@
 <?php
  /*
-overridin \Magento\Shipping\Model\Rate\Result to add a new function to calculate the new price
-The function is called from the plugin ShippingPlugin and set the new rate price.
+Overriding \Magento\Shipping\Model\Rate\Result to add a new function to calculate the new price
+The function is called f0r the plugin ShippingPlugin and set the new rate price.
  */
 namespace Beneus\ShippingTableRates\Model\Rate;
  
