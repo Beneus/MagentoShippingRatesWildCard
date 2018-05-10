@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="\Magento\Shipping\Model\Shipping">
+        <plugin name="Beneus_ShippingTableRates_change_shipping_rate" type="Beneus\ShippingTableRates\Plugin\ShippingPlugin" sortOrder="10"/>
+    </type>
+    <preference for="Magento\Shipping\Model\Rate\Result" type="Beneus\ShippingTableRates\Model\Rate\Result" />
+</config>

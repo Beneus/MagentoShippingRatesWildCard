@@ -1,0 +1,26 @@
+{
+  "name": "Beneus_ShippingTableRates",
+  "type": "magento2-module",
+  "description": "Beneus ShippingTableRates zip code with Wildcards",
+  "keywords": ["Magento2", "Checkout", "ShippingTableRates", "zip code", "Wildcard"],
+  "homepage": "http://beneus.com/",
+  "aaaminimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Beneus"
+    }
+  ],
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0",
+    "magento/magento-composer-installer": "*"
+  },
+  "extra": {
+    "map": [
+      [
+        "*",
+        "Beneus\\ShippingTableRates\\"
+      ]
+    ]
+  }
+}
