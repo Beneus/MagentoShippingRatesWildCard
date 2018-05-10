@@ -1,1 +1,1 @@
-# MagentoShippingRatesWildCard
+# Magento Shipping Rates WildCard
