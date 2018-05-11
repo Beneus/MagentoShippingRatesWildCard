@@ -93,19 +93,27 @@ class ShippingPlugin
         $collection->setCountryFilter($countryId);
 /*
      Your code to change the rule should go here
-
 */
-
-        foreach($collection as $rate){
-            if(strpos($rate['dest_zip'],'*') > 0){
-                $postCodeRoot = str_replace('*','',$rate['dest_zip']);
-                $pos = strpos($postCode, $postCodeRoot);
-                 if($pos !== false){
-                    $result->changeRatePrice($rate['price']);
-                    break;
-                 }
-            }
+        $rateFound = false;
+	$prices = [];
+        foreach($collection as $rate){	
+        	//dest_zip must end with wildcard (*)
+		if(strpos($rate['dest_zip'],'*') > 0){
+			$postCodeRoot = str_replace('*','',$rate['dest_zip']);
+			$pos = strpos($postCode, $postCodeRoot);
+			 if($pos !== false){
+				// condition_value must be lower than subtotal and the lowest of all of them
+				if( ($subTotal - $rate['condition_value']) >= 0){
+					$prices[] = $rate['price'];
+					$rateFound= true;
+				}	
+			    //$result->updateRatePrice($rate['price']/$price);
+			 }
+            	}
         }
+		if($rateFound){
+			$result->changeRatePrice(min($prices));
+		}
         return $collectRatesResult;
     }
 }
